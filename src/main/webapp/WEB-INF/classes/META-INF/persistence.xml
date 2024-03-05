@@ -9,10 +9,10 @@
         <class>com.microsoft.azure.samples.entities.Country</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://my-mysqlserver.mysql.database.azure.com:3306/world?useSSL=true&amp;requireSSL=false&amp;serverTimezone=JST"/>
-            <property name="javax.persistence.jdbc.user" value="USER@MYSQL_SERVER"/>
-            <property name="javax.persistence.jdbc.password" value="PASSWORD"/> 
+            <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://javadbtest0305.database.windows.net:1433;database=tomcattest;"/>
+            <property name="javax.persistence.jdbc.user" value="azureuser@javadbtest0305"/>
+            <property name="javax.persistence.jdbc.password" value="Secret123456"/> 
 
             <property name="eclipselink.cache.shared.default" value="false" />
 <!--            <property name="eclipselink.ddl-generation" value="create-tables" /> 
