@@ -109,8 +109,8 @@
                   <type>azure_cli</type>
               </auth>
               <schemaVersion>V2</schemaVersion>
-              <resourceGroup>MicroProfile</resourceGroup>
-              <appName>azure-javaweb-app-1709538913002</appName>
+              <resourceGroup>azure-javaweb-app</resourceGroup>
+              <appName>azure-javaweb-app</appName>
               <pricingTier>P1v2</pricingTier>
               <region>japaneast</region>
               <runtime>
