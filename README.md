@@ -62,7 +62,13 @@ OpenJDK 64-Bit Server VM 19.4-(Zulu-11.31+11-linux-musl-x64)-Microsoft-Azure-res
 
 ## Clone this project
 
-Cone this project to your local dev environment. The file structure looks like:
+Cone this project to your local dev environment. 
+
+```bash
+git clone --branch mssql https://github.com/galiacheng/Java-WebApp-to-Tomcat-on-Azure-App-Service-Linux.git
+```
+
+The file structure looks like:
 
 ```text
 .
@@ -139,6 +145,13 @@ Create a server.
 ```bash
 echo "Creating $server in $location..."
 az sql server create --name $server --resource-group $resourceGroup --location "$location" --admin-user $login --admin-password $password
+```
+
+Configure firewall.
+
+```bash
+echo "Configuring firewall..."
+az sql server firewall-rule create --resource-group $resourceGroup --server $server -n AllowYourIp --start-ip-address $startIp --end-ip-address $endIp
 ```
 
 Create a database.
