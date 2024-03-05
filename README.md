@@ -126,6 +126,7 @@ server="webappsqlserver0305"
 database="world"
 login="azureuser"
 password="Pa$$w0rD-$randomIdentifier"
+webAppName="azure-javaweb-app-0305"
 # allow access from azure service
 startIp=0.0.0.0
 endIp=0.0.0.0
@@ -165,23 +166,83 @@ Follow [Query the database](https://learn.microsoft.com/en-us/azure/azure-sql/da
 
 Note, the DB script is used for a demo, please do not use in production environment.
 
-## Package and deploy this project
+## Configure this project
 
-Configure the resource group and WebApp name in pom.xml.
-
-```xml
-<resourceGroup>azure-javaweb-app</resourceGroup>
-<appName>azure-javaweb-app</appName>
-<region>japaneast</region>
-```
-
-Run the following command to package and deploy the app.
+Run the following command to configure WebApp.
 
 ```bash
-mvn clean package azure-webapp:deploy
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 ```
 
-You will find output as the following string if the app is deploy successfully.
+Input the parameters as the following strings show.
+
+```text
+Please choose which part to config [Application]:
+* 1: Application
+  2: Runtime
+  3: DeploymentSlot
+Enter your choice: 1
+Define value for appName [azure-javaweb-app-0305]: 
+Define value for resourceGroup [azure-javaweb-app]: 
+Define value for region [japaneast]: 
+Define value for pricingTier [P1v2]:
+   1: D1
+   2: B3
+*  3: P1v2
+   4: P1v3
+   5: P2v2
+   6: P2v3
+   7: P3v2
+   8: P3v3
+   9: B1
+  10: B2
+  11: F1
+  12: S1
+  13: S2
+  14: S3
+  15: EP3
+  16: EP2
+  17: EP1
+  18: Y1
+  19: FC1
+Enter your choice: 
+Please confirm webapp properties
+AppName : azure-javaweb-app-0305
+ResourceGroup : azure-javaweb-app
+Region : japaneast
+PricingTier : P1v2
+OS : Linux
+Java Version: java11
+Web server stack: TOMCAT 9.0
+Deploy to slot : false
+Confirm (Y/N) [Y]: y
+[INFO] Saving configuration to pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.618 s
+[INFO] Finished at: 2024-03-05T17:24:28+08:00
+[INFO] ------------------------------------------------------------------------
+```
+
+You can modify the configuration in pom file. Depoy the app with command:
+
+```bash
+$ mvn clean package  azure-webapp:deploy
+
+[INFO] Auth type: AZURE_CLI
+[INFO] Username: 
+[INFO] Subscription: 
+[INFO] Start creating App Service plan (asp-azure-javaweb-app-0305)...
+[INFO] App Service plan (asp-azure-javaweb-app-0305) is successfully created
+[INFO] Start creating Web App(azure-javaweb-app-0305)...
+[INFO] Web App(azure-javaweb-app-0305) is successfully created
+[INFO] Trying to deploy external resources to azure-javaweb-app-0305...
+[INFO] Successfully deployed the resources to azure-javaweb-app-0305
+[INFO] Trying to deploy artifact to azure-javaweb-app-0305...
+[INFO] Deploying (/home/user/Java-WebApp-to-Tomcat-on-Azure-App-Service-Linux/target/azure-javaweb-app.war)[war]  ...
+[INFO] Application url: https://azure-javaweb-app-0305.azurewebsites.net  
+```
 
 Currently, the app is not accessible, as the DB is not configured.
 
@@ -190,30 +251,35 @@ Currently, the app is not accessible, as the DB is not configured.
 ### Configure the environment variable values in Application settings
 
 ```bash
+# change the webapp name if you change it
+webAppName="azure-javaweb-app-0305"
+```
+
+```azurecli
  az webapp config appsettings set \
      --resource-group ${resourceGroup} \
-     --name azure-javaweb-app \
+     --name ${webAppName} \
      --settings JDBC_DRIVER="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 ```
 
 ```azurecli
  az webapp config appsettings set \
      --resource-group ${resourceGroup} \
-     --name azure-javaweb-app \
+     --name ${webAppName} \
      --settings JDBC_URL="jdbc:sqlserver://webappsqlserver0305.database.windows.net:1433;database=world;"
 ```
 
 ```azurecli
  az webapp config appsettings set \
      --resource-group ${resourceGroup} \
-     --name azure-javaweb-app \
+     --name ${webAppName} \
      --settings DB_USER="azureuser@webappsqlserver0305"
 ```
 
 ```azurecli
  az webapp config appsettings set \
      --resource-group ${resourceGroup} \
-     --name azure-javaweb-app \
+     --name ${webAppName} \
      --settings DB_PASSWORD="${password}"
 ```
 

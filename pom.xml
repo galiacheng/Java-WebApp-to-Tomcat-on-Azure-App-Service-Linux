@@ -110,7 +110,7 @@
               </auth>
               <schemaVersion>V2</schemaVersion>
               <resourceGroup>azure-javaweb-app</resourceGroup>
-              <appName>azure-javaweb-app</appName>
+              <appName>azure-javaweb-app-0305</appName>
               <pricingTier>P1v2</pricingTier>
               <region>japaneast</region>
               <runtime>
@@ -128,10 +128,6 @@
                       </resource>
                   </resources>
               </deployment>
-              <deploymentSlot>
-                  <name>azure-javaweb-app-1709538913002-slot</name>
-                  <configurationSource></configurationSource>
-              </deploymentSlot>
           </configuration>
       </plugin>
     </plugins>
