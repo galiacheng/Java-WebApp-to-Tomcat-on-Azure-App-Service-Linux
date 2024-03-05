@@ -283,6 +283,34 @@ webAppName="azure-javaweb-app-0305"
      --settings DB_PASSWORD="${password}"
 ```
 
+List the config.
+
+```azurecli
+$ az webapp config appsettings list --name ${webAppName} -g ${resourceGroup}
+[
+  {
+    "name": "JDBC_DRIVER",
+    "slotSetting": false,
+    "value": "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+  },
+  {
+    "name": "JDBC_URL",
+    "slotSetting": false,
+    "value": "jdbc:sqlserver://webappsqlserver0305.database.windows.net:1433;database=world;"
+  },
+  {
+    "name": "DB_USER",
+    "slotSetting": false,
+    "value": "azureuser@webappsqlserver0305"
+  },
+  {
+    "name": "DB_PASSWORD",
+    "slotSetting": false,
+    "value": "password"
+  }
+]
+```
+
 ### Configure in the persistence.xml
 
 Replace "PASSWORD" with the real password value of `$password`. 

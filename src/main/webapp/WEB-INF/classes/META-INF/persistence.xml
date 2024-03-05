@@ -10,9 +10,9 @@
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://javadbtest0305.database.windows.net:1433;database=tomcattest;"/>
-            <property name="javax.persistence.jdbc.user" value="azureuser@javadbtest0305"/>
-            <property name="javax.persistence.jdbc.password" value="Secret123456"/> 
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://webappsqlserver0305.database.windows.net:1433;database=world;"/>
+            <property name="javax.persistence.jdbc.user" value="azureuser@webappsqlserver0305"/>
+            <property name="javax.persistence.jdbc.password" value="Pa60105w0rD-144759483"/> 
 
             <property name="eclipselink.cache.shared.default" value="false" />
 <!--            <property name="eclipselink.ddl-generation" value="create-tables" /> 
