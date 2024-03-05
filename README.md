@@ -313,7 +313,7 @@ $ az webapp config appsettings list --name ${webAppName} -g ${resourceGroup}
 
 ### Configure in the persistence.xml
 
-Replace "PASSWORD" with the real password value of `$password`. 
+Input the real password value of `$password`. 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
