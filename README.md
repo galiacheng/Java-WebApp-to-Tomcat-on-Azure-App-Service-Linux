@@ -44,7 +44,7 @@ This appication will run on Tomcat 9 with JDK 11. In this application, I used fo
 * PrimeFaces (8.0)
 * JSP Standard Tag Library-JSTL (1.2)
 * Weld-CDI (2.4.8.Final)
-* SQL Server JDBC Connector (8.0.21)
+* SQL Server JDBC Driver (12.6.1.jre11)
 * Java Persistence API-JPA (2.2)
 * EcliseLink (2.7.7)
 * Bean Validation (1.1.0.Final)
